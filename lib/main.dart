@@ -73,7 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       platform.invokeMethod('goToSecondActivity');
       Timer(const Duration(seconds: 4), () {
-        platform.invokeMethod('updatePosition');
+        map_platform.invokeMethod(
+          "updatePosition",
+          {
+            "lat": 43.52023014,
+            "long": -80.5352595,
+          },
+        );
       });
     } on PlatformException catch (e) {
       print(e.message);
